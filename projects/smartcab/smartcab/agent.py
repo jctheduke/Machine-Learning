@@ -45,14 +45,12 @@ class LearningAgent(Agent):
             self.alpha = 0
         else:
 
+
              # self.epsilon = min(self.epsilon -0.001*self.trail_number,1)# Decay function
             # self.epsilon = 1/(self.epsilon*self.epsilon)
             self.trail_number += 1
              # self.epsilon -= 0.005
-            if self.epsilon >= 0.6:
-                self.epsilon = math.pow(0.999,self.trail_number)
-            else:
-                self.epsilon -= 0.0002
+            self.epsilon = math.pow(0.999,self.trail_number)
         return None
 
     def build_state(self):
