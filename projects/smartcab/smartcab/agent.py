@@ -50,7 +50,7 @@ class LearningAgent(Agent):
             # self.epsilon = 1/(self.epsilon*self.epsilon)
             self.trail_number += 1
              # self.epsilon -= 0.005
-            self.epsilon = math.pow(0.999,self.trail_number)
+            self.epsilon = math.pow(0.997,self.trail_number)
         return None
 
     def build_state(self):
@@ -168,10 +168,11 @@ class LearningAgent(Agent):
         #   Use only the learning rate 'alpha' (do not use the discount factor 'gamma')
         future_state = self.build_state()
         try:
+            # If future state is present maximum reward from the future state is taken into account.
             future_state_maxq = self.get_maxQ(future_state)
         except KeyError:
-            # Every value is initiated to 0
-            future_state_maxq = 0
+            # If future state is not initiated, only reward from the current state is taken into account.
+            future_state_maxq = self.Q[state][action]
 
         # learned value without including discount factor gamma
         learned_value = (reward + (1.0 *future_state_maxq))
@@ -211,7 +212,7 @@ def run():
     #   learning   - set to True to force the driving agent to use Q-learning
     #    * epsilon - continuous value for the exploration factor, default is 1
     #    * alpha   - continuous value for the learning rate, default is 0.5
-    agent = env.create_agent(LearningAgent,learning = True, alpha = 1,epsilon=1)
+    agent = env.create_agent(LearningAgent,learning = True, alpha = 0.55,epsilon=1)
     # agent = env.create_agent(LearningAgent, learning=True)
     
     ##############
