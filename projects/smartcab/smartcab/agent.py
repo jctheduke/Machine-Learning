@@ -44,13 +44,11 @@ class LearningAgent(Agent):
             self.epsilon  = 0
             self.alpha = 0
         else:
-
-
-             # self.epsilon = min(self.epsilon -0.001*self.trail_number,1)# Decay function
+            self.epsilon = min(self.epsilon -0.001*self.trail_number,1)# Decay function
             # self.epsilon = 1/(self.epsilon*self.epsilon)
             self.trail_number += 1
              # self.epsilon -= 0.005
-            self.epsilon = math.pow(0.997,self.trail_number)
+            # self.epsilon = math.pow(0.997,self.trail_number)
         return None
 
     def build_state(self):
@@ -212,7 +210,7 @@ def run():
     #   learning   - set to True to force the driving agent to use Q-learning
     #    * epsilon - continuous value for the exploration factor, default is 1
     #    * alpha   - continuous value for the learning rate, default is 0.5
-    agent = env.create_agent(LearningAgent,learning = True, alpha = 0.55,epsilon=1)
+    agent = env.create_agent(LearningAgent,learning = True, alpha = 0.35,epsilon=1)
     # agent = env.create_agent(LearningAgent, learning=True)
     
     ##############
