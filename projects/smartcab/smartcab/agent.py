@@ -47,8 +47,8 @@ class LearningAgent(Agent):
             # self.epsilon = min(self.epsilon -0.000001*self.trail_number,1)# Decay function
             # self.epsilon = 1/(self.epsilon*self.epsilon)
             self.trail_number += 1
-            # self.epsilon -= 0.005
-            self.epsilon = math.pow(0.995,self.trail_number)
+            # self.epsilon -= 0.05
+            self.epsilon = math.pow(0.993,self.trail_number)
         return None
 
     def build_state(self):
@@ -134,7 +134,7 @@ class LearningAgent(Agent):
         if self.learning == True :
             # For maxQ provide input
             maxQ = self.get_maxQ(state)
-            maxAction = None
+
 
             action_values = self.Q[state]
             maxQActions = []
@@ -195,7 +195,7 @@ def run():
     #   learning   - set to True to force the driving agent to use Q-learning
     #    * epsilon - continuous value for the exploration factor, default is 1
     #    * alpha   - continuous value for the learning rate, default is 0.5
-    agent = env.create_agent(LearningAgent,learning = True, alpha = 0.5,epsilon=1)
+    agent = env.create_agent(LearningAgent,learning = True, alpha = 0.45,epsilon=1)
     # agent = env.create_agent(LearningAgent, learning=True)
     
     ##############
