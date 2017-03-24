@@ -45,3 +45,15 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.meta
+projects/image-classification/cifar-10-batches-py/data_batch_1
+*.p
+projects/image-classification/preprocess_validation.p
+projects/image-classification/cifar-10-python.tar.gz
+projects/image-classification/cifar-10-batches-py/data_batch_5
+projects/image-classification/cifar-10-batches-py/data_batch_2
+projects/image-classification/cifar-10-batches-py/data_batch_4
+projects/image-classification/cifar-10-batches-py/readme.html
+projects/image-classification/cifar-10-batches-py/test_batch
+*.data-00000-of-00001
+projects/image-classification/cifar-10-batches-py/data_batch_3
